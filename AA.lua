@@ -32,16 +32,14 @@ tab:Button("Auto gacha(gems)", "Automatically Gacha char for you with gems!", fu
 
 function gachaTicket(t)
  spawn(function()
-    while _G.gacha == true do
-        for i = 1, t do
+    if _G.gacha == true then
             local args = {
                 [1] = "dbz_fighter",
                 [2] = "ticket"
             }
-            
+        for i = 1, t do
             game:GetService("ReplicatedStorage").endpoints.client_to_server.buy_random_fighter:InvokeServer(unpack(args)) 
         end
-            break
             
     end
  end)
@@ -50,16 +48,15 @@ end
 
 function gachaGems(t)
     spawn(function()
-        while _G.gacha == true do
-            for i = 1, t do
+        if _G.gacha == true then
                 local args = {
                     [1] = "dbz_fighter",
                     [2] = "gems"
                 }
-                
+            for i = 1, t do  
                 game:GetService("ReplicatedStorage").endpoints.client_to_server.buy_random_fighter:InvokeServer(unpack(args))
             end
-           break
+           
         end
           
     end)
